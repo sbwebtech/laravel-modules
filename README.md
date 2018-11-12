@@ -1,5 +1,7 @@
 https://tech.osteel.me/posts/2015/08/10/how-to-use-the-fork-of-a-repository-with-composer.html
 
+Test
+
 # Laravel-Modules
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/nwidart/laravel-modules.svg?style=flat-square)](https://packagist.org/packages/nwidart/laravel-modules)
