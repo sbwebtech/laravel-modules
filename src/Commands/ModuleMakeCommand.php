@@ -9,6 +9,8 @@ use Symfony\Component\Console\Input\InputOption;
 
 class ModuleMakeCommand extends Command
 {
+    use \Modules\Core\Traits\ModuleGenerator;
+    
     /**
      * The console command name.
      *
@@ -31,6 +33,9 @@ class ModuleMakeCommand extends Command
         $names = $this->argument('name');
 
         foreach ($names as $name) {
+
+            $this->createModuleEntry($name);
+
             with(new ModuleGenerator($name))
                 ->setFilesystem($this->laravel['files'])
                 ->setModule($this->laravel['modules'])
@@ -59,6 +64,10 @@ class ModuleMakeCommand extends Command
         return [
             ['plain', 'p', InputOption::VALUE_NONE, 'Generate a plain module (without some resources).'],
             ['force', null, InputOption::VALUE_NONE, 'Force the operation to run when the module already exists.'],
+            ['can_be_disabled', null, InputOption::VALUE_NONE, 'Condition for letting a module to be disabled.'],
+            ['can_not_be_disabled', null, InputOption::VALUE_NONE, 'Condition for not letting a module to be disabled.'],
+            ['enabled', null, InputOption::VALUE_NONE, 'Condition for a module to enable.'],
+            ['disabled', null, InputOption::VALUE_NONE, 'Condition for a module to disable.'],
         ];
     }
 }
