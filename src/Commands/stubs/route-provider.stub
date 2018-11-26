@@ -49,6 +49,7 @@ class $CLASS$ extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->namespace)
+            ->prefix(config('custom.backend_url_prefix'))
             ->group(__DIR__ . '/../Routes/web.php');
     }
 
